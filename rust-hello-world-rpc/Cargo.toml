@@ -8,6 +8,10 @@ edition = "2018"
 name = "helloworld-server"
 path = "src/server.rs"
 
+[[bin]]
+name = "bluetooth-server"
+path = "src/bluetooth/server.rs"
+
 [dependencies]
 futures = "0.1"
 env_logger = { version = "0.5", default-features = false }
@@ -21,6 +25,7 @@ hyper = "0.12"
 tower-request-modifier = { git = "https://github.com/tower-rs/tower-http" }
 tower-grpc = { version = "0.1.0", features = ["tower-hyper"] }
 tower-util = "0.1"
+rumble = "0.3.0"
 
 [build-dependencies]
 tower-grpc-build = { version = "0.1.0", features = ["tower-hyper"] }

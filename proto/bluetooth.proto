@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.jdollar.rpc_helloworld.bluetoothrpc";
+option java_outer_classname = "BluetoothProto";
+
+package bluetoothrpc;
+
+service BluetoothRpc {
+  rpc StartScan (StartScanRequest) returns (StartScanReply) {}
+  rpc ListFoundDevices (ListFoundDevicesRequest) returns (ListFoundDevicesReply) {}
+  rpc PairDevice (PairDeviceRequest) returns (PairDeviceReply) {}
+}
+
+message StartScanRequest {}
+message StartScanReply {
+  bool success = 1;
+}
+
+message FoundDevice {
+  string address = 1;
+  string name = 2;
+}
+
+message ListFoundDevicesRequest {}
+message ListFoundDevicesReply {
+  repeated FoundDevice devices = 1;
+}
+
+message PairDeviceRequest {
+  string address = 1;
+}
+
+message PairDeviceReply {
+  bool success = 1;
+}
